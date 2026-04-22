@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(psql -U postgres -c \"\\\\du\")",
+      "Bash(psql -U postgres -c \"\\\\l\")",
+      "Bash(where psql *)",
+      "Read(//c/Program Files/PostgreSQL/**)",
+      "Bash(\"C:\\\\Program Files\\\\PostgreSQL\\\\18\\\\bin\\\\psql.exe\" -U postgres -c \"CREATE USER nest_user WITH PASSWORD 'NestPass123!';\")"
+    ]
+  }
+}
