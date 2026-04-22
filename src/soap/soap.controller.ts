@@ -2,14 +2,14 @@ import { Controller, Post, Res, Logger, Body } from '@nestjs/common';
 import { ApiBody, ApiConsumes, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { SoapService } from './soap.service';
 
-@ApiTags('soap')
-@Controller('soap')
+@ApiTags('data-sync')
+@Controller('data-sync')
 export class SoapController {
   private readonly logger = new Logger(SoapController.name);
 
   constructor(private readonly soapService: SoapService) {}
 
-  @Post('sync')
+  @Post()
   @ApiOperation({ summary: 'Sync order relation' })
   @ApiConsumes('text/xml', 'application/xml')
   @ApiBody({ schema: { type: 'string' }, description: 'SOAP XML envelope' })

@@ -6,6 +6,8 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  app.setGlobalPrefix('api/v0');
+
   app.use(text({ type: 'text/xml' }));
   app.use(text({ type: 'application/xml' }));
   app.use(json());
