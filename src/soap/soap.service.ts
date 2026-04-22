@@ -6,7 +6,9 @@ import { SyncOrderRelationPayload } from './soap.dto';
 export class SoapService {
   private readonly logger = new Logger(SoapService.name);
 
-  async parseSyncOrderRelation(rawXml: string): Promise<SyncOrderRelationPayload> {
+  async parseSyncOrderRelation(
+    rawXml: string,
+  ): Promise<SyncOrderRelationPayload> {
     let result: any;
     try {
       result = await parseStringPromise(rawXml, {
@@ -19,6 +21,8 @@ export class SoapService {
 
     const body = result?.['soapenv:Envelope']?.['soapenv:Body'];
     const request = body?.['ns1:syncOrderRelation'];
+
+    console.log(body);
 
     if (!request) {
       throw new BadRequestException('Invalid SyncOrderRelation format');
