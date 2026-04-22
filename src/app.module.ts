@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { SoapModule } from './soap/soap.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { AppService } from './app.service';
       migrations: [__dirname + '/migrations/*{.ts,.js}'],
       synchronize: false,
     }),
+    SoapModule,
   ],
   controllers: [AppController],
   providers: [AppService],
